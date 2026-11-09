@@ -3,12 +3,15 @@ import turtle
 screen = turtle.Screen()
 
 # only works with odd numbers of points!!
-def draw_star(points, color):
+def draw_star(points, color=None):
 
     t = turtle.Turtle()
 
-    t.color("black" , color)
-    t.begin_fill()
+    if color:
+        t.color("black", color)
+        t.begin_fill()
+    else:
+        t.color("black")
 
     for _ in range(points):
         t.forward(100)
@@ -19,10 +22,16 @@ def draw_star(points, color):
 
 
 points = int(input("Enter the number of points for the star (odd number only): "))
-color = input("Enter the color for the star: ")
+
 
 if points % 2 == 0:
     print("Please enter an odd number of points.")
 else:
-    draw_star(points, color)
-    turtle.mainloop()
+   color = input("Enter the color for the star(leave empty for default): ")
+
+   if color == "":
+       draw_star(points)
+   else:
+         draw_star(points, color)
+
+turtle.mainloop()
