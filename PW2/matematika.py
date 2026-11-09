@@ -9,8 +9,8 @@ screen.setworldcoordinates(-120, -40, 120, 80)
 def draw_axes():
     axes = turtle.Turtle()
     axes.speed(0)
-    axis.color("black")
-    axis.pensize(2)
+    axes.color("black")
+    axes.pensize(2)
 
     # Draw x-axis
     axes.penup()
@@ -22,6 +22,7 @@ def draw_axes():
     axes.penup()
     axes.goto(0, -40)
     axes.pendown()
+    axes.goto(0, 80)
 
     # x axis labels
     for x in range(-100, 121, 20):
@@ -48,7 +49,26 @@ def draw_axes():
 
     axes.hideturtle()
 
+def plot_func(x_min , x_max):
+    graph = turtle.Turtle()
+    graph.speed(0)
+    graph.color("red")
+    graph.pensize(3)
 
+    graph.penup()
+
+    for x in range(x_min, x_max + 1):
+        y = x / 5 + 27
+        graph.goto(x, y)
+        graph.pendown()
+
+    graph.hideturtle
+
+
+draw_axes()
+plot_func(-100, 100)
+
+turtle.done()
 
 
 
